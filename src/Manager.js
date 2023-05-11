@@ -43,7 +43,6 @@ export default class ProductManager {
     getProducts = async () => {
         if (fs.existsSync(this.path) ) {
             const products = await fs.promises.readFile(this.path, "utf-8");
-            
             return JSON.parse(products);   
         } else {
             return [];
@@ -66,7 +65,6 @@ export default class ProductManager {
         if (product == "Not found") {
             return product;
         } else {
-            
             products.splice(products.findIndex(element => element.id == product.id), 1);
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
             return products;

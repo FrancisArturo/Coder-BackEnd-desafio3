@@ -9,7 +9,7 @@ app.use(urlencoded({extended: true}));
 
 app.use(express.json());
 
-app.get('/', (req, res) => { res.send('Bienvenido a la API de productos') });
+app.get('/', (req, res) => { res.send('Bienvenido/a a la API de productos') });
 
 app.get('/products', async (req, res) => {
     const products = await manager.getProducts();
@@ -30,8 +30,6 @@ app.get('/products/:id', async (req, res) => {
         res.json(product);
     }
     });
-
-app.get
 
 app.listen(8080, () => {
     console.log('API Started!');
